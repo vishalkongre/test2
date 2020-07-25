@@ -1,0 +1,53 @@
+{% extends "header.html" %} {% block content %}
+
+<nav class="navbar bg-secondary navbar-expand-md navbar-dark">
+    <a href="" class="navbar-brand">MovieInfo</a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#cpnavbar">
+        <span class="navbar-toggler-icon"></span>
+     </button>
+    <section class="collapse navbar-collapse" id="cpnavbar">
+        <ul class="navbar-nav">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register/">Register</a>
+            </li>
+        </ul>
+    </section>
+
+</nav>
+
+<section class="container-fluid bg">
+    <section class="row justify-content-center">
+        <section class="col-12 col-sm-6 col-md-3" style=" margin-left: 100px;">
+
+            <form class="form-container" action="/" method="post" onsubmit="return index_validation()">
+                {% csrf_token %}
+                <div class="form-group">
+                    <center><span class="lavish">Login</span>
+                        <hr>
+                    </center>
+                    <input type="text" class="vishu" name="username" id="user" placeholder="Enter Username"><br>
+                    <span id="username" class="text-danger font-weight-bold" style="font-size: 15px;"></span><br>
+
+                    <input type="password" class="vishu" name="password" id="password" placeholder="Enter password"><br>
+                    <span id="pass" class="text-danger font-weight-bold" style="font-size: 15px;"></span><br>
+
+                    <center><input type="submit" class="sub" name="submit" style="background-color:rgb(112, 176, 197); width: 100px; "></center><br>
+                    <center><a class="vishya" href="forgot.html">Forgot Password?</a></center>
+                </div>
+            </form>
+            <div>
+                {% for message in messages %}
+                <h3>{{ message }}</h3>
+                {% endfor %}
+            </div>
+
+        </section>
+
+    </section>
+
+</section>
+{% endblock %}
